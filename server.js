@@ -20,6 +20,12 @@ app.use(cookieParser())
 app.use('/', express.static(path.join(__dirname, 'public')))
 
 app.use('/', require('./routes/root'))
+app.use('/showrooms', require('./routes/showroomRoutes'))
+app.use('/dealers', require('./routes/dealerRoutes'))
+app.use('/sizes', require('./routes/sizeRoutes'))
+app.use('/group-sizes', require('./routes/groupSizeRoutes'))
+app.use('/speces-list', require('./routes/specesListRoutes'))
+app.use('/speces-types', require('./routes/specesTypeRoutes'))
 
 app.all('*', (req, res) => {
     res.status(404)
